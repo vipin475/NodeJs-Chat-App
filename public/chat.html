@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Chat App</title>
     <link rel="icon" href="/img/favicon.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <header class="chat-header">
+        <h1></i> HelloZuz </h1>
+        <a href="index.html" class="btn">Leave Room</a>
+    </header>
+
     <div class="chat">
+
+
         <div id="sidebar" class="chat__sidebar">
 
         </div>
@@ -21,6 +27,8 @@
 
             <div class="compose">
                 <form id="message-form">
+                    <span id="u_avatar" class="avatar"></span>
+
                     <input name="message" placeholder="Message" autocomplete="off">
                     <button>Submit</button>
                 </form>
@@ -34,10 +42,13 @@
     <script id="message-template" type="text/html">
         <div class="message">
             <p>
-                <span class="message__name">{{username}}</span>
-                <span class="message__meta">{{createdAt}}</span>
+                <!-- <span class="avatar">?</span> -->
+                <span id="u_avatar" class="avatar">avt</span>
+                <span class="message__name" id="user_color">{{username}}</span>
+                
+                <span class="message__meta" >{{createdAt}}</span>
             </p>
-            <p>{{message}}</p>
+            <p class="u_message">{{message}}</p>
         </div>
     </script>
 
@@ -48,16 +59,16 @@
                 <span class="message__name">{{username}}</span>
                 <span class="message__meta">{{createdAt}}</span>
             </p>
-            <p><a href="{{url}}" target="_blank">My Current Location</a></p>
+            <p class="u_message"><a href="{{url}}" target="_blank">My Current Location</a></p>
         </div>
     </script>
 
     <script id="sidebar-template" type="text/html">
-        <h2 class="room-title">{{room}}</h2>
-        <h3 class="list-title">Users</h3>
+        <h2 class="room-title"><span style="font-size:17px;">Room Name:</span><br>{{room}}</h2>
+        <h3 class="list-title">Online Users</h3>
         <ul class="users">
             {{#users}}
-                <li>{{username}}</li>
+                <li> <span id="li_u_avatar" class="avatar" >avt</span> {{username}}</li>
             {{/users}}
         </ul>
     </script>

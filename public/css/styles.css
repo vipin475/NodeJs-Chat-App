@@ -1,5 +1,7 @@
 /* General Styles */
 
+@import url('http://fonts.cdnfonts.com/css/cumiskat');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +10,28 @@
 
 html {
     font-size: 16px;
+    color-scheme: dark;
+    color: #c5c3c1;
+    
+}
+
+
+.chat-header {
+    height: 12vh;
+	background: #1d2232;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding-left: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    font-family: 'Cumiskat', sans-serif;
+}
+.chat-header h1 {
+    margin-top: 10px;
+    margin-left: 30px;
+    color: #c5c3c1;
 }
 
 input {
@@ -16,7 +40,7 @@ input {
 
 body {
     line-height: 1.4;
-    color: #333333;
+    /* color: #333333; */
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -28,11 +52,11 @@ label {
     display: block;
     font-size: 14px;
     margin-bottom: 8px;
-    color: #777;
+    /* color: #777; */
 }
 
 input {
-    border: 1px solid #eeeeee;
+    /* border: 1px solid #eeeeee; */
     padding: 12px;
     outline: none;
 }
@@ -40,15 +64,28 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background: #603eaa;
     border: none;
-    color: white;
     font-size: 16px;
+    color: #c5c3c1;
     transition: background .3s ease;
 }
 
+.btn{
+    cursor: pointer;
+    padding: 12px;
+    background: #603eaa;
+    border: none;
+    font-size: 16px;
+    transition: background .3s ease;
+    text-decoration: none;
+    color: rgb(225, 219, 219);
+    font-family: Helvetica, Arial, sans-serif;
+
+}
+
 button:hover {
-    background: #6b47b8;
+    background: #41277a;
 }
 
 button:disabled {
@@ -59,9 +96,9 @@ button:disabled {
 /* Join Page Styles */
 
 .centered-form {
-    background: #333744;
+    /* background: #333744; */
     width: 100vw;
-    height: 100vh;   
+    height: 88vh;   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +106,7 @@ button:disabled {
 
 .centered-form__box {
     box-shadow: 0px 0px 17px 1px #1D1F26;
-    background: #F7F7FA;
+    /* background: #F7F7FA; */
     padding: 24px;
     width: 250px;
 }
@@ -87,12 +124,13 @@ button:disabled {
 
 .chat {
     display: flex;
+    background-color: #141719;
 }
 
 .chat__sidebar {
-    height: 100vh;
-    color: white;
-    background: #333744;
+    height: 88vh;
+    /* color: white; */
+    background: #23252f;
     width: 225px;
     overflow-y: scroll
 }
@@ -103,7 +141,7 @@ button:disabled {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
+    max-height: 88vh;
 }
 
 .chat__messages {
@@ -133,6 +171,10 @@ button:disabled {
     color: #0070CC;
 }
 
+.u_message {
+    margin-left: 37px;
+}
+
 /* Message Composition Styles */
 
 .compose {
@@ -148,8 +190,48 @@ button:disabled {
     margin-right: 16px;
 }
 
+#message-form .avatar {
+    /* position: absolute;
+    
+    top: 49%; */
+    /* transform: translateY(-50%); */
+    
+    
+    width: 40px;
+    height: 35px;
+    background: #FFF;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+    color: #1D1F26;
+    margin-right: 10px;
+    
+    border-radius: 100%;
+    display: block;
+}
+
+.avatar{
+    /* position: absolute;
+    
+    top: 49%; */
+    /* transform: translateY(-50%); */
+    
+    
+    width: 45px;
+    height: 32px;
+    background: #FFF;
+    text-align: center;
+    line-height: 25px;
+    
+    color: #1D1F26;
+    margin-right: 10px;
+    
+    border-radius: 100%;
+    display: inline;
+}
+
 .compose input {
-    border: 1px solid #eeeeee;
+    border: 1px solid #101213;
     width: 100%;
     padding: 12px;
     margin: 0 16px 0 0;
@@ -158,6 +240,8 @@ button:disabled {
 
 .compose button {
     font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 /* Chat Sidebar Styles */
@@ -165,7 +249,7 @@ button:disabled {
 .room-title {
     font-weight: 400;
     font-size: 22px;
-    background: #2c2f3a;
+    background: #171a24;
     padding: 24px;   
 }
 
@@ -180,4 +264,8 @@ button:disabled {
     list-style-type: none;
     font-weight: 300;
     padding: 12px 24px 0 24px;
+}
+
+#sidebar {
+    overflow: hidden;
 }

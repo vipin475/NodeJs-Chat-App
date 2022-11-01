@@ -1,6 +1,6 @@
 const users = []
 
-const addUser = ({id, username, room}) => {
+const addUser = ({id, username, room, color, avatar}) => {
     username = username.trim().toLowerCase();
     room = room.trim().toLowerCase()
 
@@ -20,7 +20,7 @@ const addUser = ({id, username, room}) => {
         }
     }
 
-    const user = {id, username, room}
+    const user = {id, username, room, color, avatar}
     users.push(user)
     return {user}
 }
@@ -51,12 +51,19 @@ const getUsersInRoom = (room) => {
     return usersInRoom
 }
 
+const getAvatar = () => {
+    const size = Math.floor(Math.random() * 100) + 25;
+
+    return `url(https://www.placecage.com/${size}/${size})`;
+};
+
 
 module.exports = {
     addUser,
     removeUser,
     getUser,
-    getUsersInRoom
+    getUsersInRoom,
+    getAvatar
 }
 
 

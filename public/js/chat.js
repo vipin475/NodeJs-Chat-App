@@ -1,13 +1,5 @@
 const socket = io()
 
-// socket.on('countUpdated', (count) => {
-//     console.log('The count has been updated', count);
-// })
-
-// document.querySelector('#increment').addEventListener('click', () => {
-//     console.log('Clicked');
-//     socket.emit('increment');
-// })
 
 // elements
 const $messageForm = document.querySelector('#message-form')
@@ -15,7 +7,13 @@ const $messageFormInput = $messageForm.querySelector('input')
 const $messageFormButton = $messageForm.querySelector('button')
 
 const $locationButton = document.querySelector('#send-location')
+const $u_name = document.querySelector('.message__name')
+const $avatar = document.querySelector('#u_avatar')
+const $li_avatar = document.querySelector('#u_li_avatar')
 const $messages = document.querySelector('#messages')
+const inputAvatar = document.querySelector('#message-form .avatar')
+
+
 
 // templates
 const messageTemplate = document.querySelector('#message-template').innerHTML
@@ -51,13 +49,18 @@ const autoscroll = () => {
 
 socket.on('message', (message) => {
     console.log(message);
-
+    
     const html = Mustache.render(messageTemplate, {
         username: message.username,
+        color: message.color,
+        avatar: message.avatar,
         message: message.text,
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html);
+
+    const u_color = message.color
+    document.querySelector('#user_color').style.color = u_color;
     autoscroll()
 })
 
@@ -65,6 +68,8 @@ socket.on('locationMessage', (message) => {
     console.log(message);
     const urlHtml = Mustache.render(locationTemplate, {
         username: message.username,
+        avatar: message.avatar,
+        color: message.color,
         url: message.url,
         createdAt: moment(message.createdAt).format('h:mm a')
     })
@@ -84,6 +89,7 @@ socket.on('roomData', ({ room, users }) => {
         users
     })
     document.querySelector('#sidebar').innerHTML = html
+    
 })
 
 
@@ -106,6 +112,7 @@ $messageForm.addEventListener('submit', (e) => {
     });
 })
 
+
 $locationButton.addEventListener('click', () => {
     if(!navigator.geolocation){
         return alert('Geolocation is not supported by your browser')
@@ -125,9 +132,20 @@ $locationButton.addEventListener('click', () => {
     })
 })
 
-socket.emit('join', { username, room }, (error) => {
+const getAvatar = () => {
+    const size = Math.floor(Math.random() * 100) + 25;
+
+    return `url(https://www.placecage.com/${size}/${size})`;
+};
+
+var avatar = getAvatar()
+
+socket.emit('join', { username, room, avatar }, (error) => {
     if(error){
         alert(error)
         location.href = '/'
     }
+
+    $avatar.style.backgroundImage = avatar;
+    $avatar.style.backgroundSize = 'contain';
 }) 
