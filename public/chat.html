@@ -39,16 +39,20 @@
 
 
 
-    <script id="message-template" type="text/html">
-        <div class="message">
-            <p>
-                <!-- <span class="avatar">?</span> -->
-                <span id="u_avatar" class="avatar" style="background-image: {{avatar}}; background-size: contain;">"A"</span>
-                <span class="message__name" style="color: {{color}};">{{username}}</span>
-                
-                <span class="message__meta" >{{createdAt}}</span>
-            </p>
-            <p class="u_message">{{message}}</p>
+    <script id="message-template" class="u_chat" type="text/html">
+        <div style="display:flex;">
+            <span id="u_avatar" class="avatar" style="background-image: {{avatar}}; background-size: contain;">"A"</span>
+    
+            <div class="message">
+                <p class="message-box">
+                    <!-- <span class="avatar">?</span> -->
+                    <span class="message__name" style="color: {{color}};">{{username}}</span>
+                    
+                    <span class="message__meta" >{{createdAt}}</span>
+                </p>
+                <p class="u_message">{{message}}</p>
+            </div>
+            
         </div>
     </script>
 

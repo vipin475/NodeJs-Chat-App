@@ -150,20 +150,30 @@ button:disabled {
     overflow-y: scroll;
 }
 
+
+
 /* Message Styles */
 
 .message {
-    margin-bottom: 16px;   
+    margin-bottom: 16px;
+    display:flexbox;
+    overflow-wrap: break-word;
+    padding: 4px;
+    width: fit-content;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(to right, rgb(29, 38, 113) 55%, rgb(195, 55, 100));   
 }
 
 .message__name {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     margin-right: 8px;
+    margin-left: 8px;
 }
 
 .message__meta {
-    color: #777;
+    color: rgb(171, 153, 187);
     font-size: 14px;
 }
 
@@ -172,7 +182,7 @@ button:disabled {
 }
 
 .u_message {
-    margin-left: 37px;
+    margin-left: 8px;
 }
 
 /* Message Composition Styles */
@@ -216,8 +226,8 @@ button:disabled {
     top: 49%; */
     /* transform: translateY(-50%); */
     
-    
-    width: 45px;
+    padding-top: 5px;
+    width: 32px;
     height: 32px;
     background: #FFF;
     text-align: center;
