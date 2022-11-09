@@ -59,8 +59,8 @@ socket.on('message', (message) => {
     })
     $messages.insertAdjacentHTML('beforeend', html);
 
-    const u_color = message.color
-    document.querySelector('#user_color').style.color = u_color;
+    
+
     autoscroll()
 })
 
