@@ -53,13 +53,11 @@ socket.on('message', (message) => {
     const html = Mustache.render(messageTemplate, {
         username: message.username,
         color: message.color,
-        avatar: message.avatar,
         message: message.text,
+        avatar: message.avatar,
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html);
-
-    
 
     autoscroll()
 })
@@ -68,9 +66,9 @@ socket.on('locationMessage', (message) => {
     console.log(message);
     const urlHtml = Mustache.render(locationTemplate, {
         username: message.username,
-        avatar: message.avatar,
         color: message.color,
         url: message.url,
+        avatar: message.avatar,
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', urlHtml)
