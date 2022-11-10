@@ -5,28 +5,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Chat App</title>
+    <title>Hellozuz</title>
     <link rel="icon" href="/img/icon2.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-
-
-    <script>
+   
+    <script>      
         document.addEventListener("visibilitychange", function() {
-            document.title = document.hidden ? "I'm away" : "I'm here";
-        });
+            if(!document.hidden){
+                document.title = "Hellozuz";
+            }
+        });       
     </script>
-
 
     <header class="chat-header">
         <img src="img/logo.png" id="logo">
-        <h1></i> HelloZuz </h1>
+        <h1> HelloZuz </h1>
         <a href="index.html" class="btn">Leave Room</a>
     </header>
 
     <div class="chat">
-
 
         <div id="sidebar" class="chat__sidebar">
 
@@ -53,6 +52,9 @@
     </audio>
 
 
+
+
+
     <script id="message-template" class="u_chat" type="text/html">
         <div style="display:flex;">
             <span id="u_avatar" class="avatar" style="background-image: {{avatar}}; background-size: contain;">"A"</span>
@@ -68,6 +70,7 @@
             </div>
             
         </div>
+        
     </script>
 
 

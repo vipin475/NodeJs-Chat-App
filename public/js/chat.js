@@ -48,6 +48,7 @@ const autoscroll = () => {
 
 
 socket.on('message', (message) => {
+    let flag = true;
     console.log(message);
     
     const html = Mustache.render(messageTemplate, {
@@ -59,6 +60,17 @@ socket.on('message', (message) => {
     })
     $messages.insertAdjacentHTML('beforeend', html);
     $audio_play.play()
+
+    if(flag){
+        if(!document.hasFocus()){
+            document.title="New messages";
+        }
+        else{
+            document.title="Hellozuz";
+        } 
+    }
+    flag = false;
+
     autoscroll()
 })
 
@@ -72,7 +84,7 @@ socket.on('locationMessage', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', urlHtml)
-    $audio_play.play()
+    $audio_play.play()  
     autoscroll()
 })
 
@@ -108,6 +120,7 @@ $messageForm.addEventListener('submit', (e) => {
             return console.log(error);
         }
         console.log("Message delivered!");
+        
     });
 })
 
