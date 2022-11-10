@@ -6,11 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Chat App</title>
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/icon2.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+
+
+    <script>
+        document.addEventListener("visibilitychange", function() {
+            document.title = document.hidden ? "I'm away" : "I'm here";
+        });
+    </script>
+
+
     <header class="chat-header">
+        <img src="img/logo.png" id="logo">
         <h1></i> HelloZuz </h1>
         <a href="index.html" class="btn">Leave Room</a>
     </header>

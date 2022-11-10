@@ -25,13 +25,14 @@ html {
 	padding-left: 15px;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	
     font-family: 'Cumiskat', sans-serif;
 }
 .chat-header h1 {
     margin-top: 10px;
     margin-left: 30px;
     color: #c5c3c1;
+    display: inline;
 }
 
 input {
@@ -69,13 +70,17 @@ button {
     font-size: 16px;
     color: #c5c3c1;
     transition: background .3s ease;
+    border-radius: 18px;
 }
 
 .btn{
+    position: absolute;
+    right: 10px;
     cursor: pointer;
     padding: 12px;
     background: #603eaa;
     border: none;
+    border-radius: 12px;
     font-size: 16px;
     transition: background .3s ease;
     text-decoration: none;
@@ -88,9 +93,19 @@ button:hover {
     background: #41277a;
 }
 
+.btn:hover {
+    background: #41277a;
+}
+
 button:disabled {
     cursor: default;
     background: #7c5cbf94;
+}
+
+#logo {
+    display: inline-block;
+    height: 12vh;
+    padding-left: 10px;
 }
 
 /* Join Page Styles */
