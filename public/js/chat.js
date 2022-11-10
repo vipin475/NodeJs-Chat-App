@@ -12,7 +12,8 @@ const $avatar = document.querySelector('#u_avatar')
 const $li_avatar = document.querySelector('#u_li_avatar')
 const $messages = document.querySelector('#messages')
 const inputAvatar = document.querySelector('#message-form .avatar')
-const $audio_play = document.querySelector("#myAudio"); 
+const $audio_play = document.querySelector("#myAudio");
+const $iconChange = document.querySelector('link[rel=icon]') 
 
 
 // templates
@@ -64,9 +65,11 @@ socket.on('message', (message) => {
     if(flag){
         if(!document.hasFocus()){
             document.title="New messages";
+            $iconChange.href = '../img/icon-red.png'
         }
         else{
             document.title="Hellozuz";
+            $iconChange.href = '../img/icon2.png'
         } 
     }
     flag = false;
@@ -84,7 +87,18 @@ socket.on('locationMessage', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', urlHtml)
-    $audio_play.play()  
+    $audio_play.play() 
+    
+    if(flag){
+        if(!document.hasFocus()){
+            document.title="New messages";
+        }
+        else{
+            document.title="Hellozuz";
+        } 
+    }
+    flag = false;
+
     autoscroll()
 })
 
