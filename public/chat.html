@@ -37,6 +37,10 @@
         </div>
     </div>
 
+    <audio id="myAudio">
+        <source src="Coin-Drop.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
 
     <script id="message-template" class="u_chat" type="text/html">
@@ -58,14 +62,20 @@
 
 
     <script id="location-template" type="text/html">
-        <div class="message">
-            <p>
-                <span id="u_avatar" class="avatar" style="background-image: {{avatar}}; background-size: contain;">"A"</span>
-                <span class="message__name" style="color: {{color}}; ">{{username}}</span>
-                <span class="message__meta">{{createdAt}}</span>
-            </p>
-            <p class="u_message"><a href="{{url}}" target="_blank">My Current Location</a></p>
+
+        <div style="display:flex;">
+            <span id="u_avatar" class="avatar" style="background-image: {{avatar}}; background-size: contain;">"A"</span>
+
+            <div class="message">
+                <p>
+                    <span class="message__name" style="color: {{color}}; ">{{username}}</span>
+                    <span class="message__meta">{{createdAt}}</span>
+                </p>
+                <p class="u_message"><a href="{{url}}" target="_blank">My Current Location</a></p>
+            </div>
+
         </div>
+
     </script>
 
     <script id="sidebar-template" type="text/html">

@@ -12,7 +12,7 @@ const $avatar = document.querySelector('#u_avatar')
 const $li_avatar = document.querySelector('#u_li_avatar')
 const $messages = document.querySelector('#messages')
 const inputAvatar = document.querySelector('#message-form .avatar')
-
+const $audio_play = document.querySelector("#myAudio"); 
 
 
 // templates
@@ -58,7 +58,7 @@ socket.on('message', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', html);
-
+    $audio_play.play()
     autoscroll()
 })
 
@@ -72,6 +72,7 @@ socket.on('locationMessage', (message) => {
         createdAt: moment(message.createdAt).format('h:mm a')
     })
     $messages.insertAdjacentHTML('beforeend', urlHtml)
+    $audio_play.play()
     autoscroll()
 })
 
