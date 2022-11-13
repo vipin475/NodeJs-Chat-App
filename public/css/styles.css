@@ -12,12 +12,17 @@ html {
     font-size: 16px;
     color-scheme: dark;
     color: #c5c3c1;
-    
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    line-height: 1.4;
+    font-family: Helvetica, Arial, sans-serif;
+}
 
 .chat-header {
-    height: 12vh;
 	background: #1d2232;
 	color: #fff;
 	border-top-left-radius: 5px;
@@ -26,24 +31,26 @@ html {
 	display: flex;
 	align-items: center;
 	
+    height: 70px;
     font-family: 'Cumiskat', sans-serif;
 }
 .chat-header h1 {
+    font-size: 24px;
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 20px;
     color: #c5c3c1;
     display: inline;
+}
+#logo {
+    display: inline-block;
+    height: 45px;
+    padding-left: 10px;
 }
 
 input {
     font-size: 14px;
 }
 
-body {
-    line-height: 1.4;
-    /* color: #333333; */
-    font-family: Helvetica, Arial, sans-serif;
-}
 
 h1 {
     margin-bottom: 16px;
@@ -70,18 +77,18 @@ button {
     font-size: 16px;
     color: #c5c3c1;
     transition: background .3s ease;
-    border-radius: 18px;
+    border-radius: 15px;
 }
 
 .btn{
     position: absolute;
     right: 10px;
     cursor: pointer;
-    padding: 12px;
+    padding: 10px;
     background: #603eaa;
     border: none;
-    border-radius: 12px;
-    font-size: 16px;
+    border-radius: 15px;
+    font-size: 14px;
     transition: background .3s ease;
     text-decoration: none;
     color: rgb(225, 219, 219);
@@ -102,18 +109,13 @@ button:disabled {
     background: #7c5cbf94;
 }
 
-#logo {
-    display: inline-block;
-    height: 12vh;
-    padding-left: 10px;
-}
 
 /* Join Page Styles */
 
 .centered-form {
     /* background: #333744; */
     width: 100vw;
-    height: 88vh;   
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,26 +139,25 @@ button:disabled {
 
 /* Chat Page Layout */
 
-.chat {
+.chat { 
+    flex-grow: 1;
     display: flex;
     background-color: #141719;
 }
 
 .chat__sidebar {
-    height: 88vh;
     /* color: white; */
     background: #23252f;
     width: 225px;
-    overflow-y: scroll
+    overflow-y: scroll;
 }
 
 /* Chat styles */
-
 .chat__main {
+    background-color: #171717;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    max-height: 88vh;
 }
 
 .chat__messages {
@@ -170,6 +171,8 @@ button:disabled {
 /* Message Styles */
 
 .message {
+    position: relative;
+    left: 10px;
     margin-bottom: 16px;
     display:flexbox;
     overflow-wrap: break-word;
@@ -177,19 +180,40 @@ button:disabled {
     width: fit-content;
     padding-right: 1.5rem;
     border-radius: 1rem;
-    background: linear-gradient(to right, rgb(29, 38, 113) 55%, rgb(195, 55, 100));   
+    background: linear-gradient(to right, rgb(29, 38, 113) 55%, rgb(195, 55, 100));
+}
+
+.message::before{
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: 0px;
+    left: -10px;
+    border: 10px solid transparent;
+    border-top: 15px solid rgb(29, 38, 113);
+}
+
+.message::after{
+    content: ''; 
+    position: absolute;
+    visibility: visible;
+    top: 0px;
+    left: -8px;
+    border: 15px solid transparent;
+    border-top: 15px solid rgb(29, 38, 113);
+    clear: both;
 }
 
 .message__name {
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
     margin-right: 8px;
     margin-left: 8px;
 }
 
 .message__meta {
     color: rgb(171, 153, 187);
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .message a {
@@ -198,13 +222,17 @@ button:disabled {
 
 .u_message {
     margin-left: 8px;
+    font-size: 17px;
 }
 
-/* Message Composition Styles */
 
+
+/* Message Composition Styles */
 .compose {
+    background-color: #23252f;
+    border-radius: 15px;
+    margin: 10px 10px;
     display: flex;
-    flex-shrink: 0;
     margin-top: 16px;
     padding: 24px;
 }
@@ -215,16 +243,10 @@ button:disabled {
     margin-right: 16px;
 }
 
-#message-form .avatar {
-    /* position: absolute;
-    
-    top: 49%; */
-    /* transform: translateY(-50%); */
-    
-    
-    width: 40px;
-    height: 35px;
-    background: #FFF;
+#message-form .avatar {  
+    width: 50px;
+    height: 40px;
+    background: #c5c3c1;
     text-align: center;
     line-height: 25px;
     font-weight: bold;
@@ -236,11 +258,6 @@ button:disabled {
 }
 
 .avatar{
-    /* position: absolute;
-    
-    top: 49%; */
-    /* transform: translateY(-50%); */
-    
     padding-top: 5px;
     width: 32px;
     height: 32px;
