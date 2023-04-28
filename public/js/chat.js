@@ -199,8 +199,11 @@ $locationButton.addEventListener('click', () => {
 const getAvatar = () => {
     const size = Math.floor(Math.random() * 100) + 25;
 
-    return `url(https://www.placecage.com/${size}/${size})`;
+    return `url(https://source.unsplash.com/random/${size}x${size}?sig=${Math.random()})`;
 };
+
+
+
 
 var avatar = getAvatar()
 

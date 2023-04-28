@@ -43,19 +43,21 @@
                     <span id="u_avatar" class="avatar"></span>
 
                     <input name="message" placeholder="Message" required autocomplete="off" style="border-radius: 15px;">
-                    <button style="border-radius: 15px;height: 100px;
-                    width: 20px; "><img src="./img/send-btn.png" id="sendbtn"></button>
+                    <button style="border-radius: 15px;"><img src="./img/send-btn.png" alt="Submit" id="sendbtn" height="20px" style="vertical-align:middle"></button>
                     
                 </form>
-                <button id="send-location" style="border-radius: 15px;">Send Location</button>
+                <button id="send-location" style="border-radius: 15px;"> <img src="./img/share-location.png" alt="Send Location" id="sendbtn" height="26px" style="vertical-align:middle"> </button>
+
+                <div class="fileUpload">
+                    <form id="fileForm">
+                        <input type="file" name="file" title=" " id="input" style="margin-left: 10px; border-radius: 15px;"/>
+                        <button type="submit" value="Submit" id="upload-btn"> <img src="./img/upload-btn.png" alt="Submit" id="sendbtn" height="20px" style="vertical-align:middle"> </button>
+                    </form>
+                </div>
+
             </div>
 
-            <div class="fileUpload">
-                <form id="fileForm">
-                    <input type="file" name="file" id="input">
-                    <input type="submit" value="Submit" id="upload-btn">
-                </form>
-            </div>
+            
         </div>
     </div>
 
@@ -117,9 +119,9 @@
                     
                     <span class="message__meta" >{{createdAt}}</span>
                 </p>
-                <img src="./uploadedImages/{{imgD}}" id="sendimages" style="height: 100px;">
+                <img src="./uploadedImages/{{imgD}}" id="sendimages" style="height: 150px;">
                 <br>
-                <a href="./uploadedImages/{{imgD}}" target="_blank">Click here to open</a>
+                <a href="./uploadedImages/{{imgD}}" target="_blank" id="image_link">Click here to open</a>
             </div>
             
         </div>
@@ -134,7 +136,7 @@
         <h3 class="list-title">Online Users</h3>
         <ul class="users">
             {{#users}}
-                <li style="color: {{color}};" > <span id="li_u_avatar" class="avatar" style="background-image: {{avatar}}; background-size: contain;">avt</span> {{username}}</li>
+                <li style="color: {{color}};" > <span id="li_u_avatar" class="avatar" style="background-image: {{avatar}}; background-size: contain;">..  ..</span> {{username}}</li>
             {{/users}}
         </ul>
     </script>
